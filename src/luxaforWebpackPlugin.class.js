@@ -4,6 +4,7 @@ const
 	Luxafor = require("luxafor-api"),
 	DEFAULTS = Object.freeze({
 		WARNING_COLOR: "#ff6f00",
+		COMPILE_COLOR: "#5071ce",
 		BUILDING_COLOR: "#4a148c",
 		ERROR_COLOR: "#b71c1c",
 		SUCCESS_COLOR: "#1b5e20",
@@ -18,11 +19,19 @@ export default class LuxaforWebpackPlugin {
 	}
 
 	apply(compiler) {
-		compiler.plugin("run", () => {
+		compiler.plugin("compile", () => {
+			if (this._timeOut) {
+				clearTimeout(this._timeOut);
+			}
+			setColor(this._device, DEFAULTS.COMPILE_COLOR);
+		});
+
+		compiler.plugin("run", (cb) => {
 			if (this._timeOut) {
 				clearTimeout(this._timeOut);
 			}
 			setColor(this._device, DEFAULTS.BUILDING_COLOR);
+			cb();
 		});
 
 		compiler.plugin("done", (results) => {
