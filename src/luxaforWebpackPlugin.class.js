@@ -10,7 +10,7 @@ const
 		LED_AUTO_OFF_TIMEOUT: 5000
 	});
 
-module.exports = class LuxaforWebpackPlugin {
+export default class LuxaforWebpackPlugin {
 	constructor() {
 		this._timeOut = null;
 		this._device = new Luxafor({});

@@ -1,3 +1,4 @@
 "use strict";
+import LuxaforWebpackPlugin from "./luxaforWebpackPlugin.class";
 
-module.exports = require("./luxaforWebpackPlugin.class");
+export default LuxaforWebpackPlugin;

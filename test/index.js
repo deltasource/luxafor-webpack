@@ -1,4 +1,4 @@
 "use strict";
 
-const Luxafor = require("../src");
+const Luxafor = require("../lib");
 let luxafor = new Luxafor();
