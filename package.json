@@ -17,8 +17,6 @@
     "build",
     "compile"
   ],
-  "files": [
-  ],
   "author": "Delta Source <info@deltasource.eu>",
   "contributors": [
     {
@@ -26,6 +24,9 @@
       "email": "daankets@deltasource.eu",
       "url": "https://www.deltasource.eu"
     }
+  ],
+  "files": [
+    "lib"
   ],
   "license": "BSD-2-Clause",
   "devDependencies": {
