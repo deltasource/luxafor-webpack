@@ -28,6 +28,10 @@ The plugin will automatically detect and use the Luxafor USB device if present.
 
 It is not yet possible to specify additional options. To be added soon (colors...)
 
+## Technology
+
+This library was developed using TypeScript, transpiled to ES6, further transpiled to ES5 using babel. Typescript was used for the added value of type safety, while the two-phase translation was used in order to be able to build both ES6 and ES5 compatible versions easily.
+
 # Copyright & License
 
 The plugin is released under the BSD 2.0 license. If you include this library as a part of your own binaries, please respect the attribution clause.
