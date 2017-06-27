@@ -24,9 +24,10 @@ gulp.task("javascript", () => {
 });
 
 gulp.task("typescript", () => {
+	let tsProject = tsc.createProject("tsconfig.json");
 	return gulp.src("src/**/*.ts")
 		.pipe(tslint()) // Lint files
-		.pipe(tsc()) // Using .jscsrc
+		.pipe(tsProject()) // Using .jscsrc
 		.pipe(babel()) // Using .babelrc
 		.pipe(uglify())
 		.pipe(gulp.dest("lib"));
