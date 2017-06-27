@@ -78,9 +78,11 @@ export default class LuxaforWebpackPlugin {
 		} else {
 			setColor(this._device, this._options.colors.success);
 		}
-		this._timeOut = setTimeout(() => {
-			off(this._device);
-		}, this._options.timeout);
+		if (this._options.timeout && this._options.timeout > 0) {
+			this._timeOut = setTimeout(() => {
+				off(this._device);
+			}, this._options.timeout);
+		}
 	}
 };
 

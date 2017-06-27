@@ -34,12 +34,40 @@ module.exports = {
 
 The plugin will automatically detect and use the Luxafor USB device if present.
 
-### Options
+### Options (TypeScript format)
 
+```javascript
+import LuxaforWebpackPlugin from "luxafor-webpack";
+
+const defaultOptions = Object.freeze(<LuxaforWebpackPlugin.Options> {
+	colors: {
+		warning: "#f4511e",
+		compile: "#ffb300",
+		optimize: "#1e88e5",
+		error: "#e53935",
+		success: "#43a047"
+	},
+	timeout: 5000 // <= 0 means no timeout!
+});
+
+// Not that the Javascript version works too. Just leave out the <...> type of the options.
+```
 As you can see above, it is possible to customize the Colors. Colors must be in css hexadecimal string format (case-insensitive). The following color values exist:
 
-* **start**: string = <span style="color: #ff0000">"#…."</span>
-  This color is activated when a new build is started.
+* **compile**: string = <span style="color: #ffb300">"#ffb300"</span>
+  This color is activated when a new compilaton phase is started.
+* **optimize**: string = <span style="color: #1e88e5">"#1e88e5"</span>
+  This color is activated when a new omtimization phase is started.
+* **warning**: string = <span style="color: #f4511e">"#f4511e"</span>
+  This color is set for [timeout] seconds when a build finishes with warnings.
+* **error**: string = <span style="color: #e53935">"#e53935"</span>
+  This color is set for [timeout] seconds when a build finishes with errors.
+* **success**: string = <span style="color: #43a047">"#43a047"</span>
+  This color is set for [timeout] seconds when a build finishes successfully.
+
+> Default colors thanks to the Google Material Design color palette (hue 600).
+
+The **timeout** defines how long the LED should stay on after the build completes. If set, the LED will poweroff after … milliseconds. Set this value to **0 or lower** in order to keep the LED on.
 
 ## Technology
 
