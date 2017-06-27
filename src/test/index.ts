@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 "use strict";
 
-import {LuxaforWebpackPlugin, Options} from "../main";
+import {IOptions, LuxaforWebpackPlugin} from "../main";
 
-let luxafor = new LuxaforWebpackPlugin(<Options>{colors: {compile: "#ffffff"}});
+const luxafor = new LuxaforWebpackPlugin({colors: {compile: "#ffffff"}} as IOptions);

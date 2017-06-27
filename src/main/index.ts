@@ -1,6 +1,6 @@
 "use strict";
-import {LuxaforWebpackPlugin, Options} from "./luxaforWebpackPlugin.class";
+import {IOptions, LuxaforWebpackPlugin} from "./luxaforWebpackPlugin.class";
 
-export {LuxaforWebpackPlugin, Options};
+export {IOptions, LuxaforWebpackPlugin};
 
 export default LuxaforWebpackPlugin;
