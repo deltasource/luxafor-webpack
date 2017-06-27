@@ -41,14 +41,14 @@ class LuxaforWebpackPlugin {
 	}
 
 	apply(compiler: webpack.Compiler) {
-		compiler.plugin("compile", () => {
+		compiler.plugin("compile", (compilationParams) => {
 			if (this._timeOut) {
 				clearTimeout(this._timeOut);
 			}
 			setColor(this._device, this._options.colors.compile);
 		});
 
-		compiler.plugin("after-compile", (done) => {
+		compiler.plugin("after-compile", (compilation, done) => {
 			if (this._timeOut) {
 				clearTimeout(this._timeOut);
 			}
@@ -56,7 +56,7 @@ class LuxaforWebpackPlugin {
 			done();
 		});
 
-		compiler.plugin("run", (done) => {
+		compiler.plugin("run", (compilation, done) => {
 			if (this._timeOut) {
 				clearTimeout(this._timeOut);
 			}
@@ -64,8 +64,8 @@ class LuxaforWebpackPlugin {
 			done();
 		});
 
-		compiler.plugin("done", (results) => {
-			this._onCompilationDone(results);
+		compiler.plugin("done", (stats) => {
+			this._onCompilationDone(stats);
 		});
 
 	}

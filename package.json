@@ -1,6 +1,6 @@
 {
-  "name": "luxafor-webpack",
-  "version": "1.0.0",
+  "name": "@deltasource/luxafor-webpack",
+  "version": "1.0.2",
   "description": "Webpack plugin for build progress notifications via the Luxafor USB LED Flag.",
   "main": "lib/main/index.js",
   "scripts": {
@@ -18,7 +18,11 @@
     "build",
     "compile"
   ],
-  "author": "Delta Source <info@deltasource.eu>",
+  "author": {
+    "name": "Daan Kets",
+    "url": "https://www.deltasource.eu",
+    "email": "daankets@deltasource.eu"
+  },
   "contributors": [
     {
       "name": "Daan Kets",
@@ -29,6 +33,7 @@
   "files": [
     "lib"
   ],
+  "private": false,
   "license": "BSD-2-Clause",
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
