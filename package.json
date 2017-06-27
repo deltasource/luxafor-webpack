@@ -1,6 +1,6 @@
 {
   "name": "@deltasource/luxafor-webpack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Webpack plugin for build progress notifications via the Luxafor USB LED Flag.",
   "main": "lib/main/index.js",
   "scripts": {
