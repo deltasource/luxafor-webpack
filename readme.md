@@ -21,7 +21,7 @@ Install per project using npm:
 Then, add it to the plugins section of your webpack configuration file, preferably as one of the first plugins:
 
 ### Example (ES 6) - gulpfile.babel.js
-```ecmascript 6
+```javascript 1.5
 import LuxaforWebpackPlugin from "@deltasource/luxafor-webpack";
 
 const myOptions = {
@@ -29,7 +29,7 @@ const myOptions = {
 };
 
 export default {
-	..., // Rules and other webpack stuff
+	// ... Rules and other webpack stuff
 	plugins: [
   		new LuxaforWebpackPlugin(myOptions) // The plugin is enabled!
 	]  
