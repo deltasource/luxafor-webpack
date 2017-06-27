@@ -12,16 +12,7 @@ const rimraf = require("gulp-rimraf");
 
 gulp.task("default", ["clean", "build"]);
 
-gulp.task("build", ["javascript", "typescript"]);
-
-gulp.task("javascript", () => {
-	return gulp
-		.src("src/**/*.js")
-		.pipe(jscs())
-		.pipe(babel()) // Using .babelrc
-		.pipe(uglify())
-		.pipe(gulp.dest("lib"));
-});
+gulp.task("build", ["typescript"]);
 
 gulp.task("typescript", () => {
 	let tsProject = tsc.createProject("tsconfig.json");
@@ -29,12 +20,12 @@ gulp.task("typescript", () => {
 		.pipe(tslint()) // Lint files
 		.pipe(tsProject()) // Using .jscsrc
 		.pipe(babel()) // Using .babelrc
-		.pipe(uglify())
+		// .pipe(uglify())
 		.pipe(gulp.dest("lib"));
 });
 
 gulp.task("clean", (done) => {
 	return gulp
-		.src("./lib/**/*.*", {read: false})
+		.src("lib/**/*.*", {read: false})
 		.pipe(rimraf());
 });

@@ -1,6 +1,6 @@
 "use strict";
 
-import Luxafor from "luxafor-api";
+import * as Luxafor from "luxafor-api";
 import webpack from "webpack";
 
 const
@@ -26,7 +26,7 @@ interface Options {
 	timeout?: number
 }
 
-export default class LuxaforWebpackPlugin {
+class LuxaforWebpackPlugin {
 
 	private _device: any;
 	private _timeOut: number;
@@ -84,7 +84,9 @@ export default class LuxaforWebpackPlugin {
 			}, this._options.timeout);
 		}
 	}
-};
+}
+
+export {LuxaforWebpackPlugin, Options};
 
 function off(device) {
 	try {

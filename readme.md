@@ -1,12 +1,14 @@
 # Luxafor Webpack Plugin
 
+**Copyright © 2017** by [Daan Kets](https://www.linkedin.com/in/daankets) of [Delta Source](https://www.deltasource.eu)
+
 ## About
 
-I wrote this plugin in order to be able to monitor my background webpack watch & build process. It connects to a Luxafor USB LED Flag, and will light the flag during the build using different colors to indicate the build progress & status.
+I wrote this plugin in order to be able to monitor my background **webpack watch & build process**. It connects to a [Luxafor USB LED flag](https://luxafor.com/luxafor-flag/), and will light the flag during the build using different **colors** to indicate the build **progress** & **status**.
 
 ## Luxafor?
 
-The [Luxafor USB LED flag](https://luxafor.com/luxafor-flag/) is a USB connected RGB led in flag design, with a magnet to attach it to your screen (or werever). Although it is originally intended to indicate your busy/available status, I prefer using it for monitoring my webpack build status. So I know when to refresh my browser (when not using livereload). Or, in case of long build, I know when to finish my cofee, and return to my laptop ;-)
+The [Luxafor USB LED flag](https://luxafor.com/luxafor-flag/) is a **USB connected RGB led** in flag design, with a magnet to attach it to your screen (or whereever). Although it was originally intended to indicate your busy/available status, I prefer using it for monitoring my webpack build status. So I know when to refresh my browser (when not using livereload). Or, in case of long build, I know when to *finish my cofee*, and return to my laptop ;-)
 
 ![Luxafor USB LEF Flag](./flag.png)
 
@@ -18,16 +20,19 @@ Install per project using npm:
 
 Then, add it to the plugins section of your webpack configuration file, preferably as one of the first plugins:
 
-```javascript
-const
-	LuxaforWebpackPlugin = require("luxafor-webpack"),
-    options = {};
+### Example (ES 6) - gulpfile.babel.js
 
-module.exports = {
-	...,
+```javascript
+import LuxaforWebpackPlugin from "luxafor-webpack";
+
+const myOptions = {
+  timeout: 0
+};
+
+export default {
+	..., // Rules and other webpack stuff
 	plugins: [
-  		new LuxaforWebpackPlugin(options),
-	  	...
+  		new LuxaforWebpackPlugin(myOptions) // The plugin is enabled!
 	]  
 }
 ```
