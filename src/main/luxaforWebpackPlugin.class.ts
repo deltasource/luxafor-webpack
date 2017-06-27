@@ -1,46 +1,50 @@
 "use strict";
-
+// Import the luxafor API, and the webpack API.
 import * as Luxafor from "luxafor-api";
 import webpack from "webpack";
 
+// Constants for the default options.
 const
-	DEFAULTS = Object.freeze(<Options> {
+	DEFAULTS = Object.freeze({
 		colors: {
-			warning: "#f4511e",
 			compile: "#ffb300",
-			optimize: "#1e88e5",
 			error: "#e53935",
-			success: "#43a047"
+			optimize: "#1e88e5",
+			success: "#43a047",
+			warning: "#f4511e"
 		},
 		timeout: 5000
-	});
+	} as IOptions);
 
-interface Options {
-	colors: {
+// Interface for the options.
+interface IOptions {
+	colors?: {
 		compile?: string,
 		warning?: string,
 		optimize?: string,
 		error?: string,
 		success?: string
-	},
-	timeout?: number
+	};
+
+	timeout?: number;
 }
 
+// The main class doing all the work ;-)
 class LuxaforWebpackPlugin {
 
 	private _device: any;
 	private _timeOut: number;
-	private _options: Options;
+	private _options: IOptions;
 
-	constructor(options?: Options) {
+	constructor(options?: IOptions) {
 		this._timeOut = null;
 		this._device = new Luxafor({});
-		this._options = options || <Options>{};
+		this._options = options || {} as IOptions;
 		(Object).assign(this._options, DEFAULTS);
 		off(this._device);
 	}
 
-	apply(compiler: webpack.Compiler) {
+	public apply(compiler: webpack.Compiler) {
 		compiler.plugin("compile", (compilationParams) => {
 			if (this._timeOut) {
 				clearTimeout(this._timeOut);
@@ -70,7 +74,7 @@ class LuxaforWebpackPlugin {
 
 	}
 
-	_onCompilationDone(result) {
+	private _onCompilationDone(result) {
 		if (result.hasErrors()) {
 			setColor(this._device, this._options.colors.error);
 		} else if (result.hasWarnings()) {
@@ -86,18 +90,23 @@ class LuxaforWebpackPlugin {
 	}
 }
 
-export {LuxaforWebpackPlugin, Options};
+// Export the main class and the options.
+export {IOptions, LuxaforWebpackPlugin};
 
+// Switch a Luxafor off.
 function off(device) {
 	try {
 		device.off();
 	} catch (error) {
+		// No need to do anything.
 	}
 }
 
+// Set Luxafor color on all channels.
 function setColor(device, color) {
 	try {
 		device.setColor(color, 0xff);
 	} catch (error) {
+		// No need to do anything.
 	}
 }

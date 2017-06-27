@@ -1,11 +1,20 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "quotemark": [
+      true,
+      "double"
     ],
-    "jsRules": {},
-    "rules": {
-        "quotemark": [true, "double"]
-    },
-    "rulesDirectory": []
+    "indent": [
+      true,
+      "tabs"
+    ],
+    "trailing-comma": false,
+    "variable-name": ["allow-leading-underscore"]
+  },
+  "rulesDirectory": []
 }
