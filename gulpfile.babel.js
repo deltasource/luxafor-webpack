@@ -6,7 +6,7 @@ import tslint from "gulp-tslint";
 const gulp = require("gulp");
 const jscs = require("gulp-jscs");
 const uglify = require("gulp-uglify");
-const babel = require("gulp-babel");
+// const babel = require("gulp-babel");
 const tsc = require("gulp-typescript");
 const rimraf = require("gulp-rimraf");
 
@@ -19,7 +19,7 @@ gulp.task("typescript", () => {
 	return gulp.src("src/**/*.ts")
 		.pipe(tslint()) // Lint files
 		.pipe(tsProject()) // Using .jscsrc
-		.pipe(babel()) // Using .babelrc
+		// .pipe(babel()) // Using .babelrc
 		// .pipe(uglify())
 		.pipe(gulp.dest("lib"));
 });
