@@ -39,8 +39,14 @@ class LuxaforWebpackPlugin {
 	constructor(options?: IOptions) {
 		this._timeOut = null;
 		this._device = new Luxafor({});
-		this._options = options || {} as IOptions;
-		(Object).assign(this._options, DEFAULTS);
+		this._options = (options || {}) as IOptions;
+		this._options.colors = this._options.colors || DEFAULTS.colors;
+		Object.keys(DEFAULTS.colors).forEach((key) => {
+			if (!this._options.colors.hasOwnProperty(key)) {
+				this._options.colors[key] = DEFAULTS[key];
+			}
+		});
+		this._options.timeout = this._options.timeout || DEFAULTS.timeout;
 		off(this._device);
 	}
 

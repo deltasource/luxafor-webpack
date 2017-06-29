@@ -21,6 +21,7 @@ Install per project using npm:
 Then, add it to the plugins section of your webpack configuration file, preferably as one of the first plugins:
 
 ### Example (ES 6) - gulpfile.babel.js
+
 ```javascript 1.5
 import LuxaforWebpackPlugin from "@deltasource/luxafor-webpack";
 
@@ -96,7 +97,7 @@ The **timeout** defines how long the LED should stay on after the build complete
 
 ## Technology
 
-This library was developed using TypeScript, transpiled to ES6, further transpiled to ES5 using babel. Typescript was used for the added value of type safety, while the two-phase translation was used in order to be able to build both ES6 and ES5 compatible versions easily.
+This library was developed using TypeScript, transpiled to ES5, optimized for Node 6. Typescript was used for the added value of type safety. Versions previous to 1.2.0 also depended on the babel-runtime. This dependency was removed in order to have a leaner package.
 
 # Copyright & License
 
